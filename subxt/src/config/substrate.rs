@@ -310,8 +310,14 @@ where
     H: Hash,
     SubstrateHeader<H>: Encode + Decode,
 {
+    type Hash = H;
+
     fn number(&self) -> u64 {
         self.number
+    }
+
+    fn parent_hash(&self) -> Self::Hash {
+        self.parent_hash
     }
 }
 
